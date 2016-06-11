@@ -67,6 +67,8 @@ Install the dependencies
 
 ```
 npm install
+npm install recastai
+npm install @slack/client@3.4.0
 ```
 
 Run your bot
