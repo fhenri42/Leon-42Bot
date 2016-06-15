@@ -2,7 +2,8 @@ var config = require('../config.js');
 
 function replyBot (login, res, dm, rtm){
 
-	if (!login) {
+	if (login) {
+		
 		var request = require('request');
 		var user;
 		var OAuth = require('oauth');
@@ -17,7 +18,7 @@ function replyBot (login, res, dm, rtm){
 			request(options, function (error, response, body){
 
 				user = JSON.parse(body);
-				if (!user.cursus){
+				if (user.cursus){
 					if (res.sentences[0].type != null){
 						if (res.intents[0] == 'find')
 							rtm.sendMessage("Location of "+ login +"  :" + user.location, dm.id);
