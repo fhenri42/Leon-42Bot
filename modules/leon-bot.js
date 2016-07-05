@@ -18,7 +18,7 @@ function replyBot (login, res, dm, rtm){
 			request(options, function (error, response, body){
 
 				user = JSON.parse(body);
-				if (user.cursus){
+				if (!user.cursus){
 					if (res.sentences[0].type != null){
 						if (res.intents[0] == 'find')
 							rtm.sendMessage("Location of "+ login +"  :" + user.location, dm.id);
