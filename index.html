@@ -1,1 +1,148 @@
-<h1> hello </h1>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Leon-42bot by fhenri42</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Leon-42bot</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/fhenri42/Leon-42Bot" class="btn">View on GitHub</a>
+      <a href="https://github.com/fhenri42/Leon-42Bot/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/fhenri42/Leon-42Bot/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="leon-42bot" class="anchor" href="#leon-42bot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Leon-42Bot</h1>
+
+<p>This Secretary bot is powered by Natural Language Processsing (NLP) with <a href="https://recast.ai">Recast.AI</a>
+and is plugged to Slack Bot, to easily connect it to Slack applications.</p>
+
+<h2>
+<a id="must" class="anchor" href="#must" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Must</h2>
+
+<ul>
+<li>You must be a 42 student to use this bot</li>
+</ul>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>Create an account on <a href="https://recast.ai/signup">Recast.AI</a>
+</li>
+<li>Create an account on <a href="https://slack.com/">Slack</a>
+</li>
+</ul>
+
+<h2>
+<a id="set-up-your-recastai-account" class="anchor" href="#set-up-your-recastai-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set up your Recast.AI account</h2>
+
+<h5>
+<a id="fork-the-bot" class="anchor" href="#fork-the-bot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fork the Bot</h5>
+
+<ul>
+<li>Log in to your Recast.AI account</li>
+<li>Go to <a href="https://recast.ai/fhenri/leon42bot/core">leon42bot</a>
+</li>
+<li>Click on the <code>Fork Bot</code> Button</li>
+</ul>
+
+<h5>
+<a id="get-your-token" class="anchor" href="#get-your-token" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get your token</h5>
+
+<ul>
+<li>In your profile, click your forked <code>leon42bot</code>
+</li>
+<li>In the tab-menu, click on <code>settings</code>
+</li>
+<li>Here is the <code>request access token</code> you need to configure your bot!</li>
+</ul>
+
+<h2>
+<a id="set-up-your-slack-account" class="anchor" href="#set-up-your-slack-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set up your Slack account</h2>
+
+<h5>
+<a id="set-the-slack-bot-account" class="anchor" href="#set-the-slack-bot-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set the slack-bot account</h5>
+
+<ul>
+<li>Log in to your slack team </li>
+<li>Go to https://"NAME OF TEAM".slack.com/apps/new/A0F7YS25R-bots and fill the form</li>
+</ul>
+
+<h2>
+<a id="set-up-your-42application" class="anchor" href="#set-up-your-42application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set up your 42application</h2>
+
+<ul>
+<li>go to <a href="https://profile.intra.42.fr/oauth/applications/new">42newapp</a>
+</li>
+<li>in Redirec URI enter: <a href="https://profile.intra.42.fr/">https://profile.intra.42.fr/</a>
+</li>
+</ul>
+
+<h2>
+<a id="start-your-bot-in-local" class="anchor" href="#start-your-bot-in-local" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start your bot in local</h2>
+
+<h5>
+<a id="complete-the-configjs" class="anchor" href="#complete-the-configjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Complete the config.js</h5>
+
+<ul>
+<li>Copy your Recast.AI <code>request access token</code>
+</li>
+<li>Copy your 42key <code>request access token</code>
+</li>
+<li>Copy your 42Secret <code>request access token</code>
+</li>
+<li>Copy your Slack token <code>token</code>
+</li>
+</ul>
+
+<pre><code>var config = {
+  api42: {
+    Key: '{42-UID}',
+    Secret: '{42-SECRET}'
+  },
+  recast: {
+    route: 'https://api.recast.ai/v1/request',
+    request_token: '{YOUR-TOKEN}'
+  },
+  slack: {
+    Token: '{SLACK-TOKEN}'
+  }
+};
+</code></pre>
+
+<h5>
+<a id="run" class="anchor" href="#run" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run</h5>
+
+<p>Install the dependencies</p>
+
+<pre><code>npm install
+npm install recastai
+npm install @slack/client@3.4.0
+npm install oauth@0.9.14
+</code></pre>
+
+<p>Run your bot</p>
+
+<pre><code>node bot.js
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/fhenri42/Leon-42Bot">Leon-42bot</a> is maintained by <a href="https://github.com/fhenri42">fhenri42</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
